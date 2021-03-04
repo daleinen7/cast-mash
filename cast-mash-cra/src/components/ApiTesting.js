@@ -3,19 +3,46 @@ import Axios from 'axios'
 
 const ApiTesting = () => {
 
-	// create a local .env file in cast-mast-cra directory with your api key 
-	const REACT_APP_KEY = process.env.REACT_APP_MOVIEDB_KEY
 
-	const [data, setData] = useState([])
+  // const fetchApi = () => {
+  //   try {
+  //     // this call needs to give me the actors' ID numbers
+  //     const response = await Axios
+  //   } catch (err) {
+  //     console.error(err.message);
+  //   }
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+    // create a local .env.local file in cast-mast-cra directory with your api key 
+
+
+
+    const REACT_APP_KEY = process.env.REACT_APP_MOVIEDB_KEY
+
+	const [dataA, setDataA] = useState([])
+	const [dataB, setDataB] = useState([])
 
 	// actorA and actorB are state variables that hold the users' input on the first two input boxes
-	const [actorA, setActorA] = useState('')
-	const [actorB, setActorB] = useState('')
+	const [userInputActorA, setUserInputActorA] = useState('')
+	const [userInputActorB, setUserInputActorB] = useState('')
 
 	// actor ID is intended to be grabbed, and then put into the second api call for each actor to get their credits -- i haven't successfully been able to do both the initial set of calls and these calls in one function
 
 	const [actorAId, setActorAId] = useState('')
 	const [actorBId, setActorBId] = useState('')
+	// const [actorAId, setActorAId] = useState('500')
+	// const [actorBId, setActorBId] = useState('11108')
 
 	// once we are able to get the credits i thought it would be cool to throw that into state
 
@@ -24,69 +51,103 @@ const ApiTesting = () => {
 
     // set up an environment variable if ya want for api key 
 
-    
 
 	// the search URLS are the initial api calls -- taking the user input that lives in state under actorA and B
-	const searchUrlActorA = `https://api.themoviedb.org/3/search/person?api_key=${REACT_APP_KEY}&language=en-US&query=${actorA}`
+	const searchUrlActorA = `https://api.themoviedb.org/3/search/person?api_key=${REACT_APP_KEY}&language=en-US&query=${userInputActorA}`
 
-	const searchUrlActorB = `https://api.themoviedb.org/3/search/person?api_key=${REACT_APP_KEY}&language=en-US&query=${actorB}`
+	const searchUrlActorB = `https://api.themoviedb.org/3/search/person?api_key=${REACT_APP_KEY}&language=en-US&query=${userInputActorB}`
 
 	// I've hard coded tom cruise lol to test this search
 	const tomCruiseCreditsCall = `https://api.themoviedb.org/3/person/500/combined_credits?api_key=${REACT_APP_KEY}`
 
-	// actorA theoretically should be the id of the actor searched in the first search box -- havent gotten this far yet
-	const actorACreditsCall = `https://api.themoviedb.org/3/person/${actorAId}/combined_credits?api_key=${REACT_APP_KEY}`
+	
+	
 
 	// getUserSearch is the funciton attached to the button right now 
 
 	async function getUserSearch() {
-		// await response from the API
-		const responseActorA = await Axios(searchUrlActorA)
+    // await response from the API
+    const responseActorA = await Axios(searchUrlActorA)
 		const responseActorB = await Axios(searchUrlActorB)
 
-		// this contains the actors' ID to use
-		const actorAId = responseActorA.data.results[0].id;
-		const actorBId = responseActorB.data.results[0].id;
+    // this contains the actors' ID to use
+    const actorAId = responseActorA.data.results[0].id;
+    const actorBId = responseActorB.data.results[0].id;
+    
+    // URLs with actors ID included
+    const actorACreditsURL = `https://api.themoviedb.org/3/person/${actorAId}/combined_credits?api_key=${REACT_APP_KEY}`
+    const actorBCreditsURL = `https://api.themoviedb.org/3/person/${actorBId}/combined_credits?api_key=${REACT_APP_KEY}`
+    
+    
+    const actorACreditsCall = await Axios(actorACreditsURL);
+    const actorBCreditsCall = await Axios(actorBCreditsURL);
 
-		// URLs with actors ID included
-		const actorACreditsURL = `https://api.themoviedb.org/3/person/${actorAId}/combined_credits?api_key=${REACT_APP_KEY}`
-		const actorBCreditsURL = `https://api.themoviedb.org/3/person/${actorBId}/combined_credits?api_key=${REACT_APP_KEY}`
+    let actorAmovies = actorACreditsCall.data.cast;
+    let actorBmovies = actorBCreditsCall.data.cast;
 
-		const actorACreditsCall = await Axios(actorACreditsURL);
-		const actorBCreditsCall = await Axios(actorBCreditsURL);
+    // console.log(actorACreditsCall)
+    // console.log(actorBCreditsCall)
+    // console.log(actorAmovies);
+		setDataA(actorAmovies);
+		setDataB(actorBmovies);
 
-		console.log(actorACreditsCall.data.cast)
-		console.log(actorBCreditsCall.data.cast)
+		
+		// for (let i = 0; i < data.length; i++) {
+			// 	console.log(typeof data[i]);
+			// }
+		}
 
-		const actorAList = actorACreditsCall.data.cast;
-		const actorBList = actorBCreditsCall.data.cast;
+		for (let i = 0; i < dataA.length; i++) {
+			// console.log(dataA[i].id);
+			for (let j = 0; j < dataB.length; j++) {
+				// if (dataA[i].id === dataB[j].id) console.log("fuck yea")
+				// if (dataA[i].id === dataB[j].id) console.log(dataA[i].title)
+				if (dataA[i].id === dataB[j].id && dataA[i].title !== undefined) {
+					console.log(`data A title = ${dataA[i].title}`)
+					console.log(`data B title = ${dataB[j].title}`)
+				}
+			}
+		}
 
-		const combinedMovies = actorAList.filter(movie => actorBList.includes(movie));
 
-		console.log(combinedMovies);
-	}
+
+
+
+		
+		// const getActorData = () => {
+				
+		// 		Axios(actorACreditsCall).then((data) => {
+		// 			console.log(data)
+		// 		})
+		// 	}
+
 
 	// grabs user input for the first input and puts it into state 
 	const handleChangeActorA = (event) => {
-		setActorA(event.target.value)
+		setUserInputActorA(event.target.value)
 	}
 
     // grabs user input for the second input and puts it into state 
 
 	const handleChangeActorB = (event) => {
-		setActorB(event.target.value)
+		setUserInputActorB(event.target.value)
 	}
 
     // handle click function for the mash button 
 	const handleClick = () => {
-		getUserSearch()
-
-
-        // here i was trying to set up a catch, when i do the api call for the search, we get actor A, but putting the two sets of api calls in the same funciton gives you an error / undefined for actor ID . so i was trying to make it so, if there is an actor id, load this data 
+ 
+    
+    // here i was trying to set up a catch, when i do the api call for the search, we get actor A, but putting the two sets of api calls in the same funciton gives you an error / undefined for actor ID . so i was trying to make it so, if there is an actor id, load this data 
 		// if (actorAId) {
-		// 	getActorData()
+    //   getActorData()
 		// }
+    
+    
+    getUserSearch()
 	}
+
+  // console.log(actorAId, actorBId);
+
 
 	return (
 		<div>
@@ -96,9 +157,12 @@ const ApiTesting = () => {
 			<div>
 				<input type='text' className='actor1' onChange={handleChangeActorB} />
 				<button onClick={handleClick}>MASH</button>
+				{/* <button onClick={}>actor A</button> */}
+				{/* <button onClick={}>actor B</button> */}
+
 			</div>
 		</div>
 	)
 }
 
-export default ApiTesting
+export default ApiTesting;
