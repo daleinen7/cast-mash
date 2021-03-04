@@ -5,13 +5,15 @@ const ApiTesting = () => {
 
     // create a local .env.local file in cast-mast-cra directory with your api key 
 
-    const REACT_APP_KEY = process.env.REACT_APP_KEY
+
+
+    const REACT_APP_KEY = process.env.REACT_APP_MOVIEDB_KEY
 
 	const [data, setData] = useState([])
 
 	// actorA and actorB are state variables that hold the users' input on the first two input boxes
-	const [actorA, setActorA] = useState('')
-	const [actorB, setActorB] = useState('')
+	const [userInputActorA, setUserInputActorA] = useState('')
+	const [userInputActorB, setUserInputActorB] = useState('')
 
 	// actor ID is intended to be grabbed, and then put into the second api call for each actor to get their credits -- i haven't successfully been able to do both the initial set of calls and these calls in one function
 
@@ -25,12 +27,11 @@ const ApiTesting = () => {
 
     // set up an environment variable if ya want for api key 
 
-    
 
 	// the search URLS are the initial api calls -- taking the user input that lives in state under actorA and B
-	const searchUrlActorA = `https://api.themoviedb.org/3/search/person?api_key=${REACT_APP_KEY}&language=en-US&query=${actorA}`
+	const searchUrlActorA = `https://api.themoviedb.org/3/search/person?api_key=${REACT_APP_KEY}&language=en-US&query=${userInputActorA}`
 
-	const searchUrlActorB = `https://api.themoviedb.org/3/search/person?api_key=${REACT_APP_KEY}&language=en-US&query=${actorB}`
+	const searchUrlActorB = `https://api.themoviedb.org/3/search/person?api_key=${REACT_APP_KEY}&language=en-US&query=${userInputActorB}`
 
 	// I've hard coded tom cruise lol to test this search
 	const tomCruiseCreditsCall = `https://api.themoviedb.org/3/person/500/combined_credits?api_key=${REACT_APP_KEY}`
@@ -38,45 +39,58 @@ const ApiTesting = () => {
 	// actorA theoretically should be the id of the actor searched in the first search box -- havent gotten this far yet
 	const actorACreditsCall = `https://api.themoviedb.org/3/person/${actorAId}/combined_credits?api_key=${REACT_APP_KEY}`
 
+	const actorBCreditsCall = `https://api.themoviedb.org/3/person/${actorBId}/combined_credits?api_key=${REACT_APP_KEY}`
+
+
 	// getUserSearch is the funciton attached to the button right now 
 
-	function getUserSearch() {
-		Axios(searchUrlActorA)
+	async function getUserSearch() {
+
+		await Axios(searchUrlActorA)
 			.then((data) => {
 				// console.log(data.data.subclasses[0].name)
+				
+				setData(data.data.results)
+				console.log(data)
+				console.log(actorAId)
 				setActorAId(data.data.results[0].id)
-				setData(data.data.results)
-				console.log(data)
-				console.log(data.data.results[0].id)
+				// console.log(data.data.results[0].id)
 			})
 			.catch(console.error)
 
-		Axios(searchUrlActorB)
+		await Axios(searchUrlActorB)
 			.then((data) => {
 				// console.log(data.data.subclasses[0].name)
-				setActorBId(data.data.results[0].id)
+				
 				setData(data.data.results)
 				console.log(data)
+				console.log(actorBId)
+				setActorBId(data.data.results[0].id)
 			})
 			.catch(console.error)
-	}
 
-	const getActorData = () => {
-		console.log(actorA)
-		Axios(tomCruiseCreditsCall).then((data) => {
-			console.log(data)
-		})
-	}
+			
+			
+			getActorData()
+			
+		}
+		
+		const getActorData = () => {
+				
+				Axios(actorACreditsCall).then((data) => {
+					console.log(data)
+				})
+			}
 
 	// grabs user input for the first input and puts it into state 
 	const handleChangeActorA = (event) => {
-		setActorA(event.target.value)
+		setUserInputActorA(event.target.value)
 	}
 
     // grabs user input for the second input and puts it into state 
 
 	const handleChangeActorB = (event) => {
-		setActorB(event.target.value)
+		setUserInputActorB(event.target.value)
 	}
 
     // handle click function for the mash button 
