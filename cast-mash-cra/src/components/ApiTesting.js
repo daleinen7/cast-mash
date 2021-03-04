@@ -121,6 +121,7 @@ const ApiTesting = () => {
 		// 		})
 		// 	}
 
+
 	// grabs user input for the first input and puts it into state 
 	const handleChangeActorA = (event) => {
 		setUserInputActorA(event.target.value)
