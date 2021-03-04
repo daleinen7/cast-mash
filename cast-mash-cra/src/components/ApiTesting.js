@@ -3,9 +3,8 @@ import Axios from 'axios'
 
 const ApiTesting = () => {
 
-    // create a local .env.local file in cast-mast-cra directory with your api key 
-
-    const REACT_APP_KEY = process.env.REACT_APP_KEY
+	// create a local .env file in cast-mast-cra directory with your api key 
+	const REACT_APP_KEY = process.env.REACT_APP_MOVIEDB_KEY
 
 	const [data, setData] = useState([])
 
@@ -15,8 +14,8 @@ const ApiTesting = () => {
 
 	// actor ID is intended to be grabbed, and then put into the second api call for each actor to get their credits -- i haven't successfully been able to do both the initial set of calls and these calls in one function
 
-	const [actorAId, setActorAId] = useState()
-	const [actorBId, setActorBId] = useState()
+	const [actorAId, setActorAId] = useState('')
+	const [actorBId, setActorBId] = useState('')
 
 	// once we are able to get the credits i thought it would be cool to throw that into state
 
@@ -40,32 +39,24 @@ const ApiTesting = () => {
 
 	// getUserSearch is the funciton attached to the button right now 
 
-	function getUserSearch() {
-		Axios(searchUrlActorA)
-			.then((data) => {
-				// console.log(data.data.subclasses[0].name)
-				setActorAId(data.data.results[0].id)
-				setData(data.data.results)
-				console.log(data)
-				console.log(data.data.results[0].id)
-			})
-			.catch(console.error)
+	async function getUserSearch() {
+		// await response from the API
+		const responseActorA = await Axios(searchUrlActorA)
+		const responseActorB = await Axios(searchUrlActorB)
 
-		Axios(searchUrlActorB)
-			.then((data) => {
-				// console.log(data.data.subclasses[0].name)
-				setActorBId(data.data.results[0].id)
-				setData(data.data.results)
-				console.log(data)
-			})
-			.catch(console.error)
-	}
+		// this contains the actors' ID to use
+		const actorAId = responseActorA.data.results[0].id;
+		const actorBId = responseActorB.data.results[0].id;
 
-	const getActorData = () => {
-		console.log(actorA)
-		Axios(tomCruiseCreditsCall).then((data) => {
-			console.log(data)
-		})
+		// URLs with actors ID included
+		const actorACreditsURL = `https://api.themoviedb.org/3/person/${actorAId}/combined_credits?api_key=${REACT_APP_KEY}`
+		const actorBCreditsURL = `https://api.themoviedb.org/3/person/${actorBId}/combined_credits?api_key=${REACT_APP_KEY}`
+
+		const actorACreditsCall = await Axios(actorACreditsURL);
+		const actorBCreditsCall = await Axios(actorBCreditsURL);
+
+		console.log(actorACreditsCall)
+		console.log(actorBCreditsCall)
 	}
 
 	// grabs user input for the first input and puts it into state 
@@ -85,9 +76,9 @@ const ApiTesting = () => {
 
 
         // here i was trying to set up a catch, when i do the api call for the search, we get actor A, but putting the two sets of api calls in the same funciton gives you an error / undefined for actor ID . so i was trying to make it so, if there is an actor id, load this data 
-		if (actorAId) {
-			getActorData()
-		}
+		// if (actorAId) {
+		// 	getActorData()
+		// }
 	}
 
 	return (
