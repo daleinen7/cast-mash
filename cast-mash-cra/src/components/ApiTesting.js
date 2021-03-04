@@ -55,8 +55,15 @@ const ApiTesting = () => {
 		const actorACreditsCall = await Axios(actorACreditsURL);
 		const actorBCreditsCall = await Axios(actorBCreditsURL);
 
-		console.log(actorACreditsCall)
-		console.log(actorBCreditsCall)
+		console.log(actorACreditsCall.data.cast)
+		console.log(actorBCreditsCall.data.cast)
+
+		const actorAList = actorACreditsCall.data.cast;
+		const actorBList = actorBCreditsCall.data.cast;
+
+		const combinedMovies = actorAList.filter(movie => actorBList.includes(movie));
+
+		console.log(combinedMovies);
 	}
 
 	// grabs user input for the first input and puts it into state 
