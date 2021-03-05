@@ -28,18 +28,18 @@ const ApiTesting = () => {
 
 	// getUserSearch is the mash button click handler
 	async function getUserSearch() {
-    // 1. await response from the API
-    const responseActorA = await Axios(searchUrlActorA)
+		// 1. await response from the API
+		const responseActorA = await Axios(searchUrlActorA)
 		const responseActorB = await Axios(searchUrlActorB)
 
-    // 2. extract actor ID's
-    const actorAId = responseActorA.data.results[0].id;
-    const actorBId = responseActorB.data.results[0].id;
-    
-    // 3. set of URLs with actors' ID's included
-    const actorACreditsURL = `https://api.themoviedb.org/3/person/${actorAId}/combined_credits?api_key=${REACT_APP_KEY}`
-    const actorBCreditsURL = `https://api.themoviedb.org/3/person/${actorBId}/combined_credits?api_key=${REACT_APP_KEY}`
-    
+		// 2. extract actor ID's
+		const actorAId = responseActorA.data.results[0].id;
+		const actorBId = responseActorB.data.results[0].id;
+		
+		// 3. set of URLs with actors' ID's included
+		const actorACreditsURL = `https://api.themoviedb.org/3/person/${actorAId}/combined_credits?api_key=${REACT_APP_KEY}`
+		const actorBCreditsURL = `https://api.themoviedb.org/3/person/${actorBId}/combined_credits?api_key=${REACT_APP_KEY}`
+		
 		// 4. movieDB handles image URL's with 3 sections --  The base URL, the size of image configuration, and the image type path.  For actors' profile, we need the "profile_path" from the API response.
 		const actorAprofilePath = responseActorA.data.results[0].profile_path
 		const actorBprofilePath = responseActorB.data.results[0].profile_path
@@ -60,13 +60,13 @@ const ApiTesting = () => {
 		const actorAprofileUrl = `http://image.tmdb.org/t/p/h632/${actorAprofilePath}`
 		const actorBprofileUrl = `http://image.tmdb.org/t/p/h632/${actorBprofilePath}`
 
-    // 6. credits call for each actor to retrieve individual works
-    const actorACreditsCall = await Axios(actorACreditsURL);
-    const actorBCreditsCall = await Axios(actorBCreditsURL);
-		
+		// 6. credits call for each actor to retrieve individual works
+		const actorACreditsCall = await Axios(actorACreditsURL);
+		const actorBCreditsCall = await Axios(actorBCreditsURL);
+			
 		// 7. list of movies for each actor
-    let actorAMovies = actorACreditsCall.data.cast;
-    let actorBMovies = actorBCreditsCall.data.cast;
+		let actorAMovies = actorACreditsCall.data.cast;
+		let actorBMovies = actorBCreditsCall.data.cast;
 		
 		// 8. state will hold this list of movies
 		setDataA(actorAMovies);
@@ -126,25 +126,32 @@ const ApiTesting = () => {
 	return (
 
 		// COMMENT TO TEST API
-		// <Layout/>
+		<Layout 
+			handleChangeActorA = {handleChangeActorA}
+			handleChangeActorB = {handleChangeActorB}
+			handleClick = {handleClick}
+			actorAPicture = {actorAPicture}
+			actorBPicture = {actorBPicture}
+			movieList = {movieList}
+		/>
 
 		// UNCOMMENT TO TEST API
-		<div>
-			<div>
-				<input type='text' className='actor1' onChange={handleChangeActorA} />
-			</div>
-			<div>
-				<input type='text' className='actor1' onChange={handleChangeActorB} />
-				<button onClick={handleClick}>MASH</button>
-			</div>
-			<div>
-				<img src={ actorAPicture } alt="actor-1"></img>
-				<img src={ actorBPicture } alt="actor-2"></img>
-			</div>
-			<div>
-				{ movieList }
-			</div>
-		</div>
+		// <div>
+		// 	<div>
+		// 		<input type='text' className='actor1' onChange={handleChangeActorA} />
+		// 	</div>
+		// 	<div>
+		// 		<input type='text' className='actor1' onChange={handleChangeActorB} />
+		// 		<button onClick={handleClick}>MASH</button>
+		// 	</div>
+		// 	<div>
+		// 		<img src={ actorAPicture } alt="actor-1"></img>
+		// 		<img src={ actorBPicture } alt="actor-2"></img>
+		// 	</div>
+		// 	<div>
+		// 		{ movieList }
+		// 	</div>
+		// </div>
 	)
 }
 
