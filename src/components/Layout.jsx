@@ -4,6 +4,7 @@ import ActorSelect from './ActorSelect'
 import ResultCard from './ResultCard'
 import styled from 'styled-components'
 import logo from '../static/images/CastMashLogo.png'
+import { PlusCircle } from "phosphor-react";
 
 const Wrapper = styled.div`
 
@@ -12,8 +13,9 @@ const Wrapper = styled.div`
 const ActorSection = styled.div`
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
-	width: 542px;
+	justify-content: center;
+	align-items: center; 
+	width: 30vw;
 	margin: 0 auto;
 `
 
@@ -26,14 +28,19 @@ export default function Layout(props) {
 				<ActorSelect 
 					handleChangeActor={props.handleChangeActorA}
 					actorPic = {props.actorAPicture}
-				/>
+					/>
+					<PlusCircle size={60} style={{ color: "#fff" }}/>
 				<ActorSelect 
 					handleChangeActor={props.handleChangeActorB}
 					actorPic = {props.actorBPicture}
 				/>
 			</ActorSection>
 			<MashButton handleClick = {props.handleClick}/>
-			<ResultCard movieList = {props.movieList}/>
+			<ResultCard 
+					movieList={props.movieList}
+					actorAPic={props.actorAPicture}
+					actorBPic = {props.actorBPicture}
+				/>
 		</Wrapper>
   	)
 }
