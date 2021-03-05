@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
+import Layout from './Layout'
 
 const ApiTesting = () => {
 
@@ -123,22 +124,25 @@ const ApiTesting = () => {
 	})
 
 	return (
-		<div>
-			<div>
-				<input type='text' className='actor1' onChange={handleChangeActorA} />
-			</div>
-			<div>
-				<input type='text' className='actor1' onChange={handleChangeActorB} />
-				<button onClick={handleClick}>MASH</button>
-			</div>
-			<div>
-				<img src={ actorAPicture } alt="actor-1"></img>
-				<img src={ actorBPicture } alt="actor-2"></img>
-			</div>
-			<div>
-				{ movieList }
-			</div>
-		</div>
+
+		<Layout/>
+
+		// <div>
+		// 	<div>
+		// 		<input type='text' className='actor1' onChange={handleChangeActorA} />
+		// 	</div>
+		// 	<div>
+		// 		<input type='text' className='actor1' onChange={handleChangeActorB} />
+		// 		<button onClick={handleClick}>MASH</button>
+		// 	</div>
+		// 	<div>
+		// 		<img src={ actorAPicture } alt="actor-1"></img>
+		// 		<img src={ actorBPicture } alt="actor-2"></img>
+		// 	</div>
+		// 	<div>
+		// 		{ movieList }
+		// 	</div>
+		// </div>
 	)
 }
 
