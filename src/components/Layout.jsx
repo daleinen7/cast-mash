@@ -1,15 +1,26 @@
 import React from 'react';
-import Mashbutton from './MashButton'
+import MashButton from './MashButton'
 import ActorSelect from './ActorSelect'
 import ResultCard from './ResultCard'
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+	background: blue;
+	h1 {
+		color: white;
+	}
+`;
 
 export default function Layout() {
-  return(
-    <div>
-        <ActorSelect/>
-        <ActorSelect/>
-		<MashButton/>
-		{/* Result Cards go Here Conditionally */}
-    </div>
-  )
+
+
+  	return(
+		<Wrapper>
+			<h1>Cast Mash</h1>
+			<ActorSelect/>
+			<ActorSelect/>
+			<MashButton/>
+			{/* Result Cards go Here Conditionally */}
+		</Wrapper>
+  	)
 }

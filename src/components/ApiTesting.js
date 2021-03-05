@@ -125,24 +125,26 @@ const ApiTesting = () => {
 
 	return (
 
-		<Layout/>
+		// COMMENT TO TEST API
+		// <Layout/>
 
-		// <div>
-		// 	<div>
-		// 		<input type='text' className='actor1' onChange={handleChangeActorA} />
-		// 	</div>
-		// 	<div>
-		// 		<input type='text' className='actor1' onChange={handleChangeActorB} />
-		// 		<button onClick={handleClick}>MASH</button>
-		// 	</div>
-		// 	<div>
-		// 		<img src={ actorAPicture } alt="actor-1"></img>
-		// 		<img src={ actorBPicture } alt="actor-2"></img>
-		// 	</div>
-		// 	<div>
-		// 		{ movieList }
-		// 	</div>
-		// </div>
+		// UNCOMMENT TO TEST API
+		<div>
+			<div>
+				<input type='text' className='actor1' onChange={handleChangeActorA} />
+			</div>
+			<div>
+				<input type='text' className='actor1' onChange={handleChangeActorB} />
+				<button onClick={handleClick}>MASH</button>
+			</div>
+			<div>
+				<img src={ actorAPicture } alt="actor-1"></img>
+				<img src={ actorBPicture } alt="actor-2"></img>
+			</div>
+			<div>
+				{ movieList }
+			</div>
+		</div>
 	)
 }
 
