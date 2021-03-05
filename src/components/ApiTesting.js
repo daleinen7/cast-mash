@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
+import Layout from './Layout'
 
 const ApiTesting = () => {
 
@@ -123,6 +124,11 @@ const ApiTesting = () => {
 	})
 
 	return (
+
+		// COMMENT TO TEST API
+		// <Layout/>
+
+		// UNCOMMENT TO TEST API
 		<div>
 			<div>
 				<input type='text' className='actor1' onChange={handleChangeActorA} />
