@@ -13,11 +13,12 @@ const Card = styled.div`
   background-color: #fff;
   width: 30vw;
   display: flex;
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   margin-top: 50px; 
   color: #000;
-  font-size: .9em;
+  font-size: .8em;
   font-family: Sora;
   border-radius: 5px;
   padding: 20px;

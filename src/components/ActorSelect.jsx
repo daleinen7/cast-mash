@@ -1,30 +1,45 @@
 import React from 'react';
 import defaultActor from '../static/images/Vector.png'
 import styled from 'styled-components'
+import { Smiley, Heart, Horse } from "phosphor-react";
 
 const Wrapper = styled.div`
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Input = styled.input`
-  width: 150px; 
-  padding: .5em;
+  width: 284px;
+  height: 35px;  
   margin: 1em;
+  margin-top: 1.4em; 
   color: #000;
   background: fff;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   font-family: Sora;
-  font-size: 1em;
-  ${'' /* box-shadow: 12px 12px 2px 1px rgba(122, 98, 254, .5); */}
-  box-shadow: 5px 5px 5px 1px rgba(122, 98, 254, .8);
-  
+  font-size: 0.875rem;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.75);  
 `;
 
 const Image = styled.img`
+  width: 200px; 
+  background: #FFFFFF;
+  border: 3px solid #7A63FF;
+  box-sizing: border-box;
+  border-radius: 67px;
+`
+
+const PlaceHolder = styled.img`
   width: 200px;
-  border-radius: 5px;
-  box-shadow: 3px 3px 3px 1px rgba(255, 255, 255, .2);
+  height: 297.22px; 
+  background: #FFFFFF;
+  border: 3px solid #7A63FF;
+  box-sizing: border-box;
+  border-radius: 67px;
 `
 
 
@@ -40,7 +55,7 @@ export default function ActorSelect(props) {
   } else {
     return(
       <Wrapper>
-          <img src={defaultActor} alt="default placeholder" />
+          <PlaceHolder src={defaultActor} alt="default placeholder" style={{ width:"100" }} />
         <Input type='text' className='actor1' onChange={props.handleChangeActor} />
       </Wrapper>
     )
