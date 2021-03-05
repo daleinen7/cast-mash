@@ -27,28 +27,11 @@ const Card = styled.div`
 
 export default function ResultCard(props) {
 
-  if (!props.actorAPic && !props.actorBPic) {
-    return (
-    <div>
-      </div>
-    )
-  } else if (props.movieList.length <= 0 && props.actorAPic && props.actorBPic) {
-      return (
-        <Container>
-          <Card>
-            They have not been in a movie together
+  return (
+    <Container>
+      <Card>
+        <p>Here's a movie{props.title}</p>
       </Card>
-        </Container>
-      
-      )
-    
-  } else {
-    return (
-      <Container>
-        <Card>
-          {props.movieList}
-        </Card>
-      </Container>
-    )
-  }
+    </Container>
+  )
 }
