@@ -15,7 +15,7 @@ const ActorSection = styled.div`
 	flex-direction: row;
 	justify-content: center;
 	align-items: center; 
-	width: 30vw;
+	min-width: 35vw;
 	margin: 0 auto;
 `
 
@@ -28,8 +28,8 @@ export default function Layout(props) {
 				<ActorSelect 
 					handleChangeActor={props.handleChangeActorA}
 					actorPic = {props.actorAPicture}
-					/>
-					<PlusCircle size={60} style={{ color: "#fff" }}/>
+				/>
+				<PlusCircle size={40} style={{ color: "#fff" }}/>
 				<ActorSelect 
 					handleChangeActor={props.handleChangeActorB}
 					actorPic = {props.actorBPicture}
