@@ -1,1 +1,2 @@
-# cast-mash
+# Cast-Mash
+Initial commit
