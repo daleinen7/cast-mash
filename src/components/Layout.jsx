@@ -36,11 +36,19 @@ export default function Layout(props) {
 				/>
 			</ActorSection>
 			<MashButton handleClick = {props.handleClick}/>
-			<ResultCard 
-					movieList={props.movieList}
-					actorAPic={props.actorAPicture}
-					actorBPic = {props.actorBPicture}
-				/>
+			{/* <ResultCard 
+				movieList={props.movieList}
+				actorAPic={props.actorAPicture}
+				actorBPic = {props.actorBPicture}
+			/> */}
+			<>
+				{props.movieList.map((movie, idx) => (
+					<ResultCard 
+						key = {idx}
+						title = {movie.title}
+					/>
+				))}
+			</>
 		</Wrapper>
   	)
 }

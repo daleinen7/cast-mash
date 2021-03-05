@@ -87,9 +87,9 @@ const ApiTesting = () => {
 		for (let i = 0; i < actorA.length; i++) {
 			for (let j = 0; j < actorB.length; j++) {
 				if (actorA[i].id === actorB[j].id && actorA[i].title !== undefined) {
-					result.push(actorA[i].title)
+					// result.push( actorA[i].title )
+					result.push( actorA[i] )
 				}
-				// TODO: implement else statement to display "no collaborations" if no collaborations were found
 			}
 		}
 
@@ -113,15 +113,17 @@ const ApiTesting = () => {
 
     // handle click function for the mash button
 	const handleClick = () => {
-    getUserSearch()
+    	getUserSearch()
+		// history.push(e.target.value)
 	}
 
 	// this variable "movieList" will map through list of "mashedMovies" and render <h1> tags for each "movieTitle"
-	let movieList = mashedMovies.map((movieTitle, idx) => {
-		return (
-			<h1 key={idx}>{movieTitle}</h1>
-		)
-	})
+	// let movieList = mashedMovies.map((movieTitle, idx) => {
+	// 	// return (
+	// 	// 	<p key={idx}>{movieTitle}</p>
+	// 	// )
+
+	// })
 
 	return (
 
@@ -132,7 +134,7 @@ const ApiTesting = () => {
 			handleClick = {handleClick}
 			actorAPicture = {actorAPicture}
 			actorBPicture = {actorBPicture}
-			movieList = {movieList}
+			movieList = {mashedMovies}
 		/>
 
 		// UNCOMMENT TO TEST API
