@@ -3,8 +3,8 @@ import Axios from 'axios'
 
 const ApiTesting = () => {
 
-    // create a local .env.local file in cast-mast-cra directory with your api key 
-    const REACT_APP_KEY = process.env.REACT_APP_MOVIEDB_KEY
+	// create a local .env.local file in cast-mast-cra directory with your api key 
+	const REACT_APP_KEY = process.env.REACT_APP_MOVIEDB_KEY
 
 	const [dataA, setDataA] = useState([])
 	const [dataB, setDataB] = useState([])
@@ -62,7 +62,7 @@ const ApiTesting = () => {
 		getCollaboration();
 		}
 
-// TODO: loop to check for any movies actors were in together
+// loop to check for any movies actors were in together
 const getCollaboration = () => {
 	let array = [];
 
@@ -73,7 +73,7 @@ const getCollaboration = () => {
 			}
 		}
 	}
-
+	setMashedMovies(array);
 }
 
 	// grabs user input for the first input and puts it into state 
@@ -91,7 +91,14 @@ const getCollaboration = () => {
     getUserSearch()
 	}
 
-	// console.log(mashedMovies)
+
+	// console.log(mashedMovies);
+	let movieList = mashedMovies.map((movieTitle, idx) => {
+		// console.log(movieTitle);
+		return (
+			<h1 key={idx}>{movieTitle}</h1>
+		)
+	})
 
 	return (
 		<div>
@@ -101,6 +108,13 @@ const getCollaboration = () => {
 			<div>
 				<input type='text' className='actor1' onChange={handleChangeActorB} />
 				<button onClick={handleClick}>MASH</button>
+			</div>
+			<div>
+				<img src={ actorAPicture } alt="actor-1"></img>
+				<img src={ actorBPicture } alt="actor-2"></img>
+			</div>
+			<div>
+				{ movieList }
 			</div>
 		</div>
 	)
