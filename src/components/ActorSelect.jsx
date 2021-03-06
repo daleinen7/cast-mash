@@ -8,7 +8,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
+
+  }
 `;
 
 const Input = styled.input`
@@ -23,7 +25,10 @@ const Input = styled.input`
   font-family: Sora;
   font-size: 0.875rem;
   text-align: center;
-  color: rgba(0, 0, 0, 0.75);  
+  color: rgba(0, 0, 0, 0.75);
+  @media (max-width: 800px) {
+    flex-direction: row;
+	  width: 20%;
 `;
 
 const Image = styled.img`
@@ -32,6 +37,9 @@ const Image = styled.img`
   border: 3px solid #7A63FF;
   box-sizing: border-box;
   border-radius: 67px;
+ @media (max-width: 800px) {
+    flex-direction: row;
+	  width: 20%;
 `
 
 const PlaceHolder = styled.div`
@@ -43,7 +51,10 @@ const PlaceHolder = styled.div`
   border-radius: 67px;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
+ @media (max-width: 800px) {
+    flex-direction: row;
+	  width: 20%;
 `
 
 

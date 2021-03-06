@@ -15,12 +15,17 @@ const Button = styled.button`
   letter-spacing: 0.04em;
   color: #FFFFFF;
   text-transform: uppercase;
-  border: 0; 
+  border: 0;
+   @media (max-width: 800px) {
+    flex-direction: row;
+	  width: 20%;
+    font-size: 1rem; 
 
 `
 
 export default function MashButton(props) {
-  return(
+  return (
+    
     <Button onClick={props.handleClick}>Mash</Button>
   )
 }

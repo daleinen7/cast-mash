@@ -14,12 +14,24 @@ const Wrapper = styled.div`
   background-size: cover;
   height: 100vh;
   background-color: #000;
+@media (max-width: 800px) {
+    flex-direction: column;
+	width: 100vw;
 `;
+
+const Icon = styled.img`
+@media (max-width: 800px) {
+    flex-direction: row;
+	width: 20%;
+	
+`
 
 const Main = styled.div`
 	margin: 0 auto; 
 	width: 900px;
-	
+ @media (max-width: 800px) {
+    flex-direction: column;
+	width: 100vw;
 	`
 
 
@@ -31,6 +43,9 @@ const ActorSection = styled.div`
 	align-items: center; 
 	min-width: 35vw;
 	margin: 0 auto;
+@media (max-width: 800px) {
+    flex-direction: column;
+	width: 100vw;
 `;
 
 
@@ -40,7 +55,7 @@ export default function Layout(props) {
   	return(
 		<Wrapper>
 				<Main>
-				<h1><img src={biglogo} alt="Cast Mash" /></h1>
+				<h1><Icon src={biglogo} alt="Cast Mash" /></h1>
 			<ActorSection>
 				<ActorSelect 
 					handleChangeActor={props.handleChangeActorA}
