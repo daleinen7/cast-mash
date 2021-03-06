@@ -39,7 +39,7 @@ const Image = styled.img`
   border-radius: 67px;
  @media (max-width: 800px) {
     flex-direction: row;
-	  width: 20%;
+	  width: 50vw;
 `
 
 const PlaceHolder = styled.div`

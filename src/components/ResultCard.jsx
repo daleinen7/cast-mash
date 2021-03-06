@@ -25,7 +25,10 @@ const Card = styled.div`
     flex-direction: row;
 	  width: 100vw;
     background-color: #fff;
-    height: 100%; 
+    height: 100%;
+    left: 0;
+    right: 0;
+    padding: 10px; 
 `;
 
 const CardContent = styled.div`
@@ -44,6 +47,7 @@ const PosterContent = styled.div`
   margin: 50px 0px;
   padding: 20px;
    @media (max-width: 800px) {
+     width: 30vw; 
     flex-direction: row;
 	  margin: 0; 
 `;
@@ -55,7 +59,7 @@ const Image = styled.img`
   padding: 20px;
    @media (max-width: 800px) {
     flex-direction: row;
-	  width: 50vw;
+	  width: 30vw;
 `
 
 export default function ResultCard(props) {
