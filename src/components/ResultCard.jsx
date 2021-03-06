@@ -20,26 +20,42 @@ const Card = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
+   @media (max-width: 800px) {
+    flex-direction: row;
+	  width: 100vw;
+    background-color: #fff;
+    height: 100%; 
 `;
 
 const CardContent = styled.div`
   width: 800px;  
   margin: 50px 0px;
   padding: 20px;
-  text-align: left; 
+  text-align: left;
+   @media (max-width: 800px) {
+    flex-direction: row;
+	  width: 100vw;
+    font-size: .95rem;
+    padding: 10px; 
 `;
 const PosterContent = styled.div`
   width: 210px; 
   margin: 50px 0px;
   padding: 20px;
+   @media (max-width: 800px) {
+    flex-direction: row;
+	  margin: 0; 
 `;
 
 const Image = styled.img`
   width: 200px; 
   background: #FFFFFF;
   box-sizing: border-box;
-  padding: 20px; 
+  padding: 20px;
+   @media (max-width: 800px) {
+    flex-direction: row;
+	  width: 50vw;
 `
 
 export default function ResultCard(props) {
