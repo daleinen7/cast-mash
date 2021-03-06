@@ -37,8 +37,6 @@ const Main = styled.div`
 	width: 100vw;
 	`
 
-
-
 const ActorSection = styled.div`
 	position: relative; 
 	display: flex;
@@ -47,6 +45,25 @@ const ActorSection = styled.div`
 	align-items: center; 
 	min-width: 35vw;
 	margin: 0 auto;
+@media (max-width: 800px) {
+    flex-direction: column;
+	width: 100vw;
+`;
+
+const NotTogether = styled.div`
+	position: relative;
+	width: 40rem; 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	background-color: #fff;
+	color: #000;
+	font-family: Sora;
+	font-size: 1.1rem;
+	margin-top: 10px;
+	border: none;
+	border-radius: 4px; 
 @media (max-width: 800px) {
     flex-direction: column;
 	width: 100vw;
@@ -76,7 +93,9 @@ export default function Layout(props) {
 					<MashButton handleClick={props.handleClick} />
 					<div>
 				
-					<p style={{color: "white"}}>"testing message"</p>
+						<NotTogether>
+							They were not in a movie together
+						</NotTogether>
 					</div>
 				</Main>
 				<Footer />
