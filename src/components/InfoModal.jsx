@@ -24,7 +24,7 @@ export default function InfoModal() {
         right: '50px',
         bottom: 'auto',
         marginRight: '50px',
-        transition: 'ease-in-out 0.6s', 
+        transition: 'ease-in 0.6s', 
         backgroundColor: '#fff',
         fontFamily: 'Sora',
         width: '400px',
