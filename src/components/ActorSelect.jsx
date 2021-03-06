@@ -1,7 +1,6 @@
 import React from 'react';
 import defaultActor from '../static/images/Vector.png'
 import styled from 'styled-components'
-import { Smiley, Heart, Horse } from "phosphor-react";
 
 const Wrapper = styled.div`
   padding: 20px;

@@ -30,7 +30,12 @@ export default function ResultCard(props) {
   return (
     <Container>
       <Card>
-        <p>Here's a movie{props.title}</p>
+        <p>
+          Here's a movie {props.title} <br />
+          {props.overview}<br />
+          {props.release_date}<br />
+          <img src={ `https://image.tmdb.org/t/p/w500/${props.poster}`} />
+        </p>
       </Card>
     </Container>
   )

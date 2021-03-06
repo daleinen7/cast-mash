@@ -3,7 +3,7 @@ import MashButton from './MashButton'
 import ActorSelect from './ActorSelect'
 import ResultCard from './ResultCard'
 import styled from 'styled-components'
-import logo from '../static/images/CastMashLogo.png'
+import biglogo from '../static/images/biglogo.png'
 import { PlusCircle } from "phosphor-react";
 
 const Wrapper = styled.div`
@@ -23,7 +23,7 @@ export default function Layout(props) {
 
   	return(
 		<Wrapper>
-			<h1><img src={logo} alt="Cast Mash"/></h1>
+			<h1><img src={biglogo} alt="Cast Mash"/></h1>
 			<ActorSection>
 				<ActorSelect 
 					handleChangeActor={props.handleChangeActorA}
@@ -45,7 +45,10 @@ export default function Layout(props) {
 				{props.movieList.map((movie, idx) => (
 					<ResultCard 
 						key = {idx}
-						title = {movie.title}
+						title={movie.title}
+						poster={movie.poster_path}
+						overview={movie.overview}
+						releaseDate={movie.release_date}
 					/>
 				))}
 			</>
