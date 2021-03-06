@@ -15,8 +15,8 @@ const Card = styled.div`
   background-size: contain; 
   background-repeat: no-repeat;
   background-position: center center;
-  margin: 50px 0px;
-  padding: 20px;
+  margin: 10px 0px;
+  padding: 0px;
   display: flex;
   flex-direction: row;
   align-items: center;

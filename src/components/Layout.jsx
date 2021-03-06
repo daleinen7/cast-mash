@@ -74,7 +74,7 @@ export default function Layout(props) {
 					<p style={{color: "white"}}>"testing message"</p>
 					</div>
 				</Main>
-
+				<Footer />
 			</Wrapper>
 	
 		)
@@ -108,7 +108,7 @@ export default function Layout(props) {
 						))}
 					</>
 				</Main>
-
+				<Footer />
 			</Wrapper>
 		)
 	}
