@@ -13,8 +13,15 @@ const Wrapper = styled.div`
   bottom: 0; 
   background-size: cover;
   height: 100vh;
-  background-color: #000; 
+  background-color: #000;
 `;
+
+const Main = styled.div`
+	margin: 0 auto; 
+	width: 900px;
+	
+	`
+
 
 const ActorSection = styled.div`
 	position: relative; 
@@ -32,7 +39,8 @@ export default function Layout(props) {
 
   	return(
 		<Wrapper>
-			<h1><img src={biglogo} alt="Cast Mash"/></h1>
+				<Main>
+				<h1><img src={biglogo} alt="Cast Mash" /></h1>
 			<ActorSection>
 				<ActorSelect 
 					handleChangeActor={props.handleChangeActorA}
@@ -60,7 +68,8 @@ export default function Layout(props) {
 						releaseDate={movie.release_date}
 					/>
 				))}
-			</>
+					</>
+				</Main>
 		</Wrapper>
   	)
 }

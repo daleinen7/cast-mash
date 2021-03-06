@@ -5,10 +5,7 @@ import Moment from 'react-moment';
 
 
 const Container = styled.div`
-  width: 100vw;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
   font-family: Sora;
   font-size: 1.1rem; 
 `;
