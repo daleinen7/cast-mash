@@ -1,13 +1,14 @@
 import React from 'react';
 // import defaultActor from '../static/images/Vector.png'
 import { User } from "phosphor-react";
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; 
 `;
 
 const Input = styled.input`
@@ -52,7 +53,6 @@ export default function ActorSelect(props) {
       <Wrapper>
         <Image src={props.actorPic} alt="Actor" />
         <Input type='text' className='actor1' onChange={props.handleChangeActor} />
-
       </Wrapper>
     )
   } else {
