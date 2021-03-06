@@ -52,36 +52,64 @@ const ActorSection = styled.div`
 
 
 export default function Layout(props) {
-
-  	return(
-		<Wrapper>
+	if (props.movieList.length <= 0 && props.actorAPicture) {
+		return (
+			<Wrapper>
 				<Main>
-				<Icon src={biglogo} alt="Cast Mash" />
-				<ActorSection>
-					<ActorSelect 
-						handleChangeActor={props.handleChangeActorA}
-						actorPic = {props.actorAPicture}
-					/>
-				<PlusCircle size={40} style={{ color: "#fff" }}/>
-				<ActorSelect 
-					handleChangeActor={props.handleChangeActorB}
-					actorPic = {props.actorBPicture}
-				/>
-				</ActorSection>
-			<MashButton handleClick = {props.handleClick}/>
-			<>
-				{props.movieList.map((movie, idx) => (
-					<ResultCard 
-						key = {idx}
-						title={movie.title}
-						poster={movie.poster_path}
-						overview={movie.overview}
-						releaseDate={movie.release_date}
-					/>
-				))}
+					<Icon src={biglogo} alt="Cast Mash" />
+					<ActorSection>
+						<ActorSelect
+							handleChangeActor={props.handleChangeActorA}
+							actorPic={props.actorAPicture}
+						/>
+						<PlusCircle size={40} style={{ color: "#fff" }} />
+						<ActorSelect
+							handleChangeActor={props.handleChangeActorB}
+							actorPic={props.actorBPicture}
+						/>
+					</ActorSection>
+					<MashButton handleClick={props.handleClick} />
+					<div>
+				
+					<p style={{color: "white"}}>"testing message"</p>
+					</div>
+				</Main>
+
+			</Wrapper>
+	
+		)
+	} else {
+		return (
+			<Wrapper>
+				<Main>
+					<Icon src={biglogo} alt="Cast Mash" />
+					<ActorSection>
+						<ActorSelect
+							handleChangeActor={props.handleChangeActorA}
+							actorPic={props.actorAPicture}
+						/>
+						<PlusCircle size={40} style={{ color: "#fff" }} />
+						<ActorSelect
+							handleChangeActor={props.handleChangeActorB}
+							actorPic={props.actorBPicture}
+						/>
+					</ActorSection>
+					<MashButton handleClick={props.handleClick} />
+					<>
+			
+						{props.movieList.map((movie, idx) => (
+							<ResultCard
+								key={idx}
+								title={movie.title}
+								poster={movie.poster_path}
+								overview={movie.overview}
+								releaseDate={movie.release_date}
+							/>
+						))}
 					</>
 				</Main>
-			<Footer />
-		</Wrapper>
-  	)
+
+			</Wrapper>
+		)
+	}
 }
