@@ -63,7 +63,6 @@ const Image = styled.img`
 `
 
 export default function ResultCard(props) {
-
   return (
     <Container>
       <Card>
