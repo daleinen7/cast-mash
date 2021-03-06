@@ -13,18 +13,27 @@ const FootSpan = styled.div`
   bottom: 0;
   width: 100vw;
   text-align: left:
+  @media (max-width: 800px) {
+    flex-direction: column;
+	  width: 100vw;
 `;
 
 const Image = styled.img`
   width: 416px;
   height: 133px; 
+  @media (max-width: 800px) {
+	  height: 50%;
+    width: 50%; 
 `
 
 const Copyright = styled.div`
   right: 10px; 
   font-family: Sora;
   font-size: 1rem;
-  padding: 20px; 
+  padding: 20px;
+  @media (max-width: 800px) {
+	  font-size: .5rem;
+    right: 0; 
 `
 
 export default function Footer(props) {

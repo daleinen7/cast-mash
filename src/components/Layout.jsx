@@ -2,6 +2,7 @@ import React from 'react';
 import MashButton from './MashButton';
 import ActorSelect from './ActorSelect';
 import ResultCard from './ResultCard';
+import InfoModal from './InfoModal'; 
 import Footer from './Footer'; 
 import styled from 'styled-components';
 import biglogo from '../static/images/biglogo.png';
@@ -13,6 +14,7 @@ const Wrapper = styled.div`
   background-repeat: no-repeat;
   bottom: 0; 
   background-size: cover;
+  background-position: center center; 
   height: 100vh;
   background-color: #000;
 @media (max-width: 800px) {
@@ -36,6 +38,7 @@ const Main = styled.div`
 	`
 
 
+
 const ActorSection = styled.div`
 	position: relative; 
 	display: flex;
@@ -51,11 +54,13 @@ const ActorSection = styled.div`
 
 
 
+
 export default function Layout(props) {
 	if (props.movieList.length <= 0 && props.actorAPicture) {
 		return (
 			<Wrapper>
-				<Main>
+				<Main> 	
+					<InfoModal />
 					<Icon src={biglogo} alt="Cast Mash" />
 					<ActorSection>
 						<ActorSelect
@@ -74,14 +79,16 @@ export default function Layout(props) {
 					<p style={{color: "white"}}>"testing message"</p>
 					</div>
 				</Main>
-
-			</Wrapper>
+				<Footer />
+				</Wrapper>
+				
 	
 		)
 	} else {
 		return (
 			<Wrapper>
 				<Main>
+					<InfoModal />
 					<Icon src={biglogo} alt="Cast Mash" />
 					<ActorSection>
 						<ActorSelect
@@ -108,7 +115,7 @@ export default function Layout(props) {
 						))}
 					</>
 				</Main>
-
+				<Footer />
 			</Wrapper>
 		)
 	}
