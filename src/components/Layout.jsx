@@ -1,10 +1,10 @@
 import React from 'react';
-import MashButton from './MashButton'
-import ActorSelect from './ActorSelect'
-import ResultCard from './ResultCard'
-import styled from 'styled-components'
-import biglogo from '../static/images/biglogo.png'
-import bg from '../static/images/seatsbg.png'
+import MashButton from './MashButton';
+import ActorSelect from './ActorSelect';
+import ResultCard from './ResultCard';
+import styled from 'styled-components';
+import biglogo from '../static/images/biglogo.png';
+import bg from '../static/images/seatsbg.png';
 import { PlusCircle } from "phosphor-react";
 
 const Wrapper = styled.div`
@@ -24,7 +24,9 @@ const ActorSection = styled.div`
 	align-items: center; 
 	min-width: 35vw;
 	margin: 0 auto;
-`
+`;
+
+
 
 export default function Layout(props) {
 
