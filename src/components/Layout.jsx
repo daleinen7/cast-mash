@@ -2,6 +2,7 @@ import React from 'react';
 import MashButton from './MashButton';
 import ActorSelect from './ActorSelect';
 import ResultCard from './ResultCard';
+import Footer from './Footer'; 
 import styled from 'styled-components';
 import biglogo from '../static/images/biglogo.png';
 import bg from '../static/images/seatsbg.png';
@@ -55,24 +56,19 @@ export default function Layout(props) {
   	return(
 		<Wrapper>
 				<Main>
-				<h1><Icon src={biglogo} alt="Cast Mash" /></h1>
-			<ActorSection>
-				<ActorSelect 
-					handleChangeActor={props.handleChangeActorA}
-					actorPic = {props.actorAPicture}
-				/>
+				<Icon src={biglogo} alt="Cast Mash" />
+				<ActorSection>
+					<ActorSelect 
+						handleChangeActor={props.handleChangeActorA}
+						actorPic = {props.actorAPicture}
+					/>
 				<PlusCircle size={40} style={{ color: "#fff" }}/>
 				<ActorSelect 
 					handleChangeActor={props.handleChangeActorB}
 					actorPic = {props.actorBPicture}
 				/>
-			</ActorSection>
+				</ActorSection>
 			<MashButton handleClick = {props.handleClick}/>
-			{/* <ResultCard 
-				movieList={props.movieList}
-				actorAPic={props.actorAPicture}
-				actorBPic = {props.actorBPicture}
-			/> */}
 			<>
 				{props.movieList.map((movie, idx) => (
 					<ResultCard 
@@ -85,6 +81,7 @@ export default function Layout(props) {
 				))}
 					</>
 				</Main>
+			<Footer />
 		</Wrapper>
   	)
 }
