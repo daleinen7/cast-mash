@@ -4,13 +4,20 @@ import ActorSelect from './ActorSelect'
 import ResultCard from './ResultCard'
 import styled from 'styled-components'
 import biglogo from '../static/images/biglogo.png'
+import bg from '../static/images/seatsbg.png'
 import { PlusCircle } from "phosphor-react";
 
 const Wrapper = styled.div`
-
+  background-image: url(${bg}); 
+  background-repeat: no-repeat;
+  bottom: 0; 
+  background-size: cover;
+  height: 100vh;
+  background-color: #000; 
 `;
 
 const ActorSection = styled.div`
+	position: relative; 
 	display: flex;
 	flex-direction: row;
 	justify-content: center;

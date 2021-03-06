@@ -1,5 +1,6 @@
 import React from 'react';
-import defaultActor from '../static/images/Vector.png'
+// import defaultActor from '../static/images/Vector.png'
+import { User } from "phosphor-react";
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -32,13 +33,16 @@ const Image = styled.img`
   border-radius: 67px;
 `
 
-const PlaceHolder = styled.img`
+const PlaceHolder = styled.div`
   width: 200px;
   height: 297.22px; 
   background: #FFFFFF;
   border: 3px solid #7A63FF;
   box-sizing: border-box;
   border-radius: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
 `
 
 
@@ -54,7 +58,9 @@ export default function ActorSelect(props) {
   } else {
     return(
       <Wrapper>
-          <PlaceHolder src={defaultActor} alt="default placeholder" style={{ width:"100" }} />
+        <PlaceHolder>
+          <User size={160} weight="duotone" />
+        </PlaceHolder>
         <Input type='text' className='actor1' onChange={props.handleChangeActor} />
       </Wrapper>
     )
