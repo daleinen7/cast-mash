@@ -28,7 +28,7 @@ const Input = styled.input`
   color: rgba(0, 0, 0, 0.75);
   @media (max-width: 800px) {
     flex-direction: row;
-	  width: 20%;
+	  width: 50vw;
 `;
 
 const Image = styled.img`
@@ -54,7 +54,8 @@ const PlaceHolder = styled.div`
   justify-content: center;
  @media (max-width: 800px) {
     flex-direction: row;
-	  width: 20%;
+	  width: 50vw;
+    height: 25vh;
 `
 
 
