@@ -1,6 +1,7 @@
 # Cast-Mash
 ## Deployed Site
 [Cast Mash](https://cast-mash.netlify.app/)
+![Cast Mash Screenshot](screengrab.png)
 ## About
 Cast Mash takes two actors and "Mashes" them together to find out what movies they've both been in.  The project was thought up, designed, and programmed in 5 days. 
 
