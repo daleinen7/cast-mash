@@ -7,13 +7,13 @@ Cast Mash takes two actors and "Mashes" them together to find out what movies th
 
 ## Team
 ### UX/UI
-Michael Dijak
-Kevin Li
+- Michael Dijak
+- Kevin Li
 
 ### API Programming
-[Matt Noth](https://github.com/mattnoth)
-[Noa Kim](https://github.com/noanonoa)
+- [Matt Noth](https://github.com/mattnoth)
+- [Noa Kim](https://github.com/noanonoa)
 
 ### Front End Team
-[Stephanie Rinehart](https://github.com/mlisdev)
-[Doug Leinen](https://github.com/daleinen7)
+- [Stephanie Rinehart](https://github.com/mlisdev)
+- [Doug Leinen](https://github.com/daleinen7)
