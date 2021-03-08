@@ -16,6 +16,7 @@ const Button = styled.button`
   color: #FFFFFF;
   text-transform: uppercase;
   border: 0;
+  margin-bottom: 20px; 
    @media (max-width: 800px) {
     flex-direction: row;
 	  width: 20%;

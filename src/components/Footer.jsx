@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import footlogo from '../static/images/footerlogo.png';
+// import footlogo from '../static/images/footerlogo.png';
+import transparentlogo from '../static/images/transparent_logo.svg';
+
 
 const FootSpan = styled.div`
-	position: absolute;
+  position: relative;
+  top: auto; 
 	bottom: 0;
 	left: 0;
   display: flex;
@@ -11,9 +14,9 @@ const FootSpan = styled.div`
   align-items: center; 
   justify-content: space-between; 
   color: #fff;
-  background-color: #C5C5C5;
   width: 100vw;
-  text-align: left:
+  text-align: left;
+  height: 133px;
   @media (max-width: 800px) {
     flex-direction: column;
 	  width: 100vw;
@@ -40,7 +43,7 @@ const Copyright = styled.div`
 export default function Footer(props) {
     return (
         <FootSpan>
-            <Image src={footlogo} />
+            <Image src={transparentlogo} />
             <Copyright>Copyright Castmash</Copyright>
         </FootSpan>
         

@@ -20,6 +20,7 @@ const Wrapper = styled.div`
 @media (max-width: 800px) {
     flex-direction: column;
 	width: 100vw;
+	height: 100%; 
 `;
 
 const Icon = styled.img`
@@ -107,6 +108,7 @@ export default function Layout(props) {
 		)
 	} else {
 		return (
+			<>
 			<Wrapper>
 				<Main>
 					<InfoModal />
@@ -136,8 +138,9 @@ export default function Layout(props) {
 						))}
 					</>
 				</Main>
-					<Footer />
 			</Wrapper>
+			<Footer />
+			</>
 		)
 	}
 }
