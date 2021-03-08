@@ -3,16 +3,15 @@ import styled from 'styled-components';
 import footlogo from '../static/images/footerlogo.png';
 
 const FootSpan = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
   display: flex;
   flex-direction: row;
   align-items: center; 
   justify-content: space-between; 
   color: #fff;
   background-color: #C5C5C5;
-
-  margin: 0;
-  left: 0; 
-  bottom: 0;
   width: 100vw;
   text-align: left:
   @media (max-width: 800px) {

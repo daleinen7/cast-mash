@@ -28,9 +28,8 @@ const Icon = styled.img`
 	width: 20%;
 	
 `
-
 const Main = styled.div`
-	margin: 0 auto; 
+	margin: auto; 
 	width: 900px;
  @media (max-width: 800px) {
     flex-direction: column;
@@ -43,7 +42,8 @@ const ActorSection = styled.div`
 	flex-direction: row;
 	justify-content: center;
 	align-items: center; 
-	min-width: 35vw;
+	min-width: 15vw;
+	max-width: 100vw; 
 	margin: 0 auto;
 @media (max-width: 800px) {
     flex-direction: column;
@@ -69,21 +69,16 @@ const NotTogether = styled.div`
 	width: 100vw;
 `;
 
-const FootSpan = styled.div`
-	position: absolute;
-	bottom: 0;
-	top: auto;
-	left: 0; 
-	`
 
 
 
 export default function Layout(props) {
 	if (props.movieList.length <= 0 && props.actorAPicture) {
 		return (
+			<>
+					<InfoModal />
 			<Wrapper>
 				<Main> 	
-					<InfoModal />
 					<Icon src={biglogo} alt="Cast Mash" />
 					<ActorSection>
 						<ActorSelect
@@ -103,9 +98,10 @@ export default function Layout(props) {
 							They were not in a movie together
 						</NotTogether>
 					</div>
-				</Main>
 				<Footer />
+				</Main>
 				</Wrapper>
+				</>
 				
 	
 		)
@@ -140,9 +136,7 @@ export default function Layout(props) {
 						))}
 					</>
 				</Main>
-				<FootSpan>
 					<Footer />
-					</FootSpan>
 			</Wrapper>
 		)
 	}
