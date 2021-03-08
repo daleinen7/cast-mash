@@ -7,7 +7,7 @@ Cast Mash takes two actors and "Mashes" them together to find out what movies th
 
 ## Team
 ### UX/UI
-- Michael Dijak
+- [Michael Dijak](mdijak.com)
 - [Kevin Li](https://www.kevinli.design/)
 
 ### API Programming
