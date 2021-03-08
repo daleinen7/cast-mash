@@ -43,7 +43,6 @@ const CardContent = styled.div`
     padding: 10px; 
 `;
 const PosterContent = styled.div`
-  ${'' /* width: 210px;  */}
   margin: 50px 0px;
   padding: 20px;
    @media (max-width: 800px) {
