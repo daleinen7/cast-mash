@@ -69,6 +69,12 @@ const NotTogether = styled.div`
 	width: 100vw;
 `;
 
+const FootSpan = styled.div`
+	position: absolute;
+	bottom: 0;
+	top: auto;
+	left: 0; 
+	`
 
 
 
@@ -134,7 +140,9 @@ export default function Layout(props) {
 						))}
 					</>
 				</Main>
-				<Footer />
+				<FootSpan>
+					<Footer />
+					</FootSpan>
 			</Wrapper>
 		)
 	}
