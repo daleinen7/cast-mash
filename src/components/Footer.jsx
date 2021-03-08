@@ -8,6 +8,8 @@ const FootSpan = styled.div`
   align-items: center; 
   justify-content: space-between; 
   color: #fff;
+  background-color: #C5C5C5;
+
   margin: 0;
   left: 0; 
   bottom: 0;
