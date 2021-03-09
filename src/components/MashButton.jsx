@@ -38,8 +38,8 @@ export default function MashButton(props) {
       <Button onClick={props.handleClick}>Mash</Button>
       <br />
       <p style={{ color: "#fff", fontFamily: "Sora", fontSize: ".7rem" }}>Matching capabilities provided by The Movie Database <br />
-        <MovieDb src={tmdblogo} ></MovieDb><br />
-      This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+        <a href="https://www.themoviedb.org/?language=en-US"><MovieDb src={tmdblogo} ></MovieDb></a><br />
+      This product uses the <a href="https://www.themoviedb.org/?language=en-US" style={{color: "teal"}}>TMDb</a> API but is not endorsed or certified by TMDb.</p>
       </>
   )
 }
