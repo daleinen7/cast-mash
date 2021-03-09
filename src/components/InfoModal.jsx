@@ -19,15 +19,15 @@ export default function InfoModal() {
     
     const customStyles = {
         content : {
-        top: '50px',
+        top: '1%',
         left: 'auto',
-        right: '50px',
+        right: '1%',
         bottom: 'auto',
-        marginRight: '50px',
+        marginRight: '5%',
         transition: 'ease-in 0.6s', 
         backgroundColor: '#fff',
         fontFamily: 'Sora',
-        width: '400px',
+        width: '30%',
         borderRadius: '10px'
         }
     };
