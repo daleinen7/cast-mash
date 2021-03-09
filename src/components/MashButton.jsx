@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import tmdblogo from '../static/images/tmdblogo.svg'; 
 
 const Button = styled.button`
   background: #7A63FF;
@@ -24,9 +25,21 @@ const Button = styled.button`
 
 `
 
+const MovieDb = styled.img`
+    width: 100px; 
+@media (max-width: 800px) {
+	width: 20%;
+	
+`
+
 export default function MashButton(props) {
   return (
-    
-    <Button onClick={props.handleClick}>Mash</Button>
+    <>
+      <Button onClick={props.handleClick}>Mash</Button>
+      <br />
+      <p style={{ color: "#fff", fontFamily: "Sora", fontSize: ".7rem" }}>Matching capabilities provided by The Movie Database <br />
+        <MovieDb src={tmdblogo} ></MovieDb><br />
+      This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+      </>
   )
 }
