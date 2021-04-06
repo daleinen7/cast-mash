@@ -5,6 +5,7 @@ import Header from './Header'
 import ActorCardA from './ActorCardA'
 import ActorCardB from './ActorCardB'
 import MashButton from './MashButton'
+import Footer from './Footer'
 
 const ApiTesting = () => {
 
@@ -144,7 +145,7 @@ const ApiTesting = () => {
 			</div>
 				<MashButton handleClick={ handleClick } />
 			<div>
-				{/* { movieList } */}
+				<Footer />
 			</div>
 		</div>
 	)
