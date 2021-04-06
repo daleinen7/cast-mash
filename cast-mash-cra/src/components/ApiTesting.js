@@ -6,6 +6,9 @@ import ActorCardA from './ActorCardA'
 import ActorCardB from './ActorCardB'
 import MashButton from './MashButton'
 import Footer from './Footer'
+import leftMargin from '../static/05.png'
+import rightMargin from '../static/06.png'
+import backArrow from '../static/07.svg'
 
 const ApiTesting = () => {
 
@@ -126,29 +129,67 @@ const ApiTesting = () => {
 	// this variable "movieList" will map through list of "mashedMovies" and render <h1> tags for each "movieTitle"
 	let movieList = mashedMovies.map((movieTitle, idx) => {
 		return (
-			<h1 key={idx}>{movieTitle}</h1>
+			<div className="movie-ticket" key={idx}>
+				{movieTitle}
+			</div>
 		)
 	})
 
-	return (
-		<div>
-			<Header />
-			<div className="search-container">
-				<ActorCardA
-					handleChangeActorA={ handleChangeActorA }
-					actorAPicture={ actorAPicture }
-				/>
-				<ActorCardB
-					handleChangeActorB={ handleChangeActorB }
-					actorBPicture={ actorBPicture }
-				/>
-			</div>
-				<MashButton handleClick={ handleClick } />
+	// formatting name helper function
+	const formatName = (userInput) => {
+		let names = userInput.split(" ");
+		let formatted = [];
+		for (let name of names) {
+			formatted.push(name[0].toUpperCase() + name.slice(1)); // ["Tom", "Cruise"]
+		}
+		return formatted.join().replace(',', ' ');
+	};
+
+	if (mashedMovies.length === 0) {
+		return (
 			<div>
+				<Header />
+				<div className="search-container">
+					<ActorCardA
+						handleChangeActorA={ handleChangeActorA }
+						actorAPicture={ actorAPicture }
+					/>
+					<ActorCardB
+						handleChangeActorB={ handleChangeActorB }
+						actorBPicture={ actorBPicture }
+					/>
+				</div>
+					<MashButton handleClick={ handleClick } />
+				<div>
+					<Footer />
+				</div>
+			</div>
+		)
+	} else {
+		return (
+			<div className="results-container">
+				<div className="back-button" onClick={() => setMashedMovies([]) }>
+					<img src={ backArrow } alt="back arrow" />
+				</div>
+				<img id="left-curtain" src={ leftMargin } alt="left margin" />
+				<img id="right-curtain" src={ rightMargin } alt="right margin" />
+				<div className="mashed-actors">
+					<div className="actor-container">
+						<img src={ actorAPicture } alt={ formatName(userInputActorA) } />
+						<p>{ formatName(userInputActorA) }</p>
+					</div>
+					<div className="actor-container">
+						<img src={ actorBPicture } alt={ formatName(userInputActorB) } />
+						<p>{ formatName(userInputActorB) }</p>
+					</div>
+				</div>
+				<div className="movie-list">
+					{ movieList }
+				</div>
 				<Footer />
 			</div>
-		</div>
-	)
+		);
+	}
 }
 
 export default ApiTesting;
