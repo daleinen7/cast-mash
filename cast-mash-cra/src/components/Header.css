@@ -1,0 +1,15 @@
+.header-container {
+  position: absolute;
+  width: 100%;
+  padding-top: 40px;
+  height: 119px;
+}
+
+.header-container > img {
+  display: block;
+  width: 247px;
+  height: 79px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
