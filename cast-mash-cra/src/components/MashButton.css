@@ -12,7 +12,13 @@
   width: 265px;
   font-size: 2rem;
   font-weight: 600;
+  box-shadow: none;
+  border: none;
   
   background-color: #7A63FF;
   border-radius: 30px;
+}
+
+.mash-button-container > button:hover {
+  cursor: pointer;
 }
