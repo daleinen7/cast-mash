@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import Axios from 'axios'
 import './ApiTesting.css'
 import Header from './Header'
+import ActorCardA from './ActorCardA'
+import ActorCardB from './ActorCardB'
+import MashButton from './MashButton'
 
 const ApiTesting = () => {
 
@@ -93,7 +96,7 @@ const ApiTesting = () => {
 				}
 			};
 		};
-		console.log(!result);
+		// if no results
 		if (result.length < 1) {
 			result = ["No Collaborations found."];
 		}
@@ -129,19 +132,19 @@ const ApiTesting = () => {
 	return (
 		<div>
 			<Header />
-			<div>
-				<input type='text' className='actor1' onChange={handleChangeActorA} />
+			<div className="search-container">
+				<ActorCardA
+					handleChangeActorA={ handleChangeActorA }
+					actorAPicture={ actorAPicture }
+				/>
+				<ActorCardB
+					handleChangeActorB={ handleChangeActorB }
+					actorBPicture={ actorBPicture }
+				/>
 			</div>
+				<MashButton handleClick={ handleClick } />
 			<div>
-				<input type='text' className='actor1' onChange={handleChangeActorB} />
-				<button onClick={handleClick}>MASH</button>
-			</div>
-			<div>
-				<img src={ actorAPicture } alt="actor-1"></img>
-				<img src={ actorBPicture } alt="actor-2"></img>
-			</div>
-			<div>
-				{ movieList }
+				{/* { movieList } */}
 			</div>
 		</div>
 	)
