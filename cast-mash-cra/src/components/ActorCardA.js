@@ -9,7 +9,7 @@ function ActorCardA({ handleChangeActorA, actorAPicture, userInputActorA }) {
         <div className="actorImageHolder">
           <img className="image-placeholder" src={ imagePlaceholder } alt="profile placeholder" />
         </div>
-        <input type='text' onChange={ handleChangeActorA } />
+        <input type='text' placeholder="Actor Name" onChange={ handleChangeActorA } />
       </div> 
     );
   } else {
