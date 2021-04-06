@@ -1,8 +1,91 @@
 .search-container {
   position: relative;
   width: 100%;
-  height: 400px;
   top: 150px;
   display: flex;
   justify-content: space-around;
+}
+
+.results-container {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  background-color: #070000;
+}
+
+.back-button {
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  left: 130px;
+  top: 50px;
+}
+
+.back-button:hover {
+  cursor: pointer;
+}
+
+#left-curtain {
+  position: absolute;
+  width: 100px;
+  top: -10px;
+  left: 0;
+}
+
+#right-curtain {
+  position: absolute;
+  width: 100px;
+  top: -10px;
+  right: 0;
+}
+
+.mashed-actors {
+  color: white;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 70%;
+  height: 300px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.actor-container {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 300px;
+  justify-content: space-evenly;
+  font-weight: 600;
+}
+
+.actor-container > img {
+  display: block;
+  width: 150px;
+  height: auto;
+  margin: 0 auto;
+
+  border-radius: 67px;
+  border: 5px solid #7A63FF;
+}
+
+.movie-list {
+  width: 70%;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 100px;
+  background-color: #070000;
+}
+
+.movie-ticket {
+  color: white;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin: 0 auto;
+  background-color: #070000;
+
+  border: 1px solid yellow;
 }
