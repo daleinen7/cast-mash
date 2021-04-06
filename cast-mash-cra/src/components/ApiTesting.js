@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
+import './ApiTesting.css'
+import Header from './Header'
 
 const ApiTesting = () => {
 
@@ -86,10 +88,14 @@ const ApiTesting = () => {
 		for (let i = 0; i < actorA.length; i++) {
 			for (let j = 0; j < actorB.length; j++) {
 				if (actorA[i].id === actorB[j].id && actorA[i].title !== undefined) {
-					result.push(actorA[i].title)
+					console.log("actorA:", actorA[i]);
+					result.push(actorA[i].title);
 				}
-				// TODO: implement else statement to display "no collaborations" if no collaborations were found
-			}
+			};
+		};
+		console.log(!result);
+		if (result.length < 1) {
+			result = ["No Collaborations found."];
 		}
 
 		// set state to have list of movie titles found in collaboration
@@ -98,21 +104,19 @@ const ApiTesting = () => {
 
 	// grabs user input for the first actorA and puts it into state 
 	const handleChangeActorA = (event) => {
-		// FIXME: we can deconstruct here for more clarity.
-		// const { value } = event.target
-		setUserInputActorA(event.target.value)
+		const { value } = event.target;
+		setUserInputActorA(value);
 	}
 	
 	// grabs user input for the second actorB and puts it into state 
 	const handleChangeActorB = (event) => {
-		// FIXME: we can deconstruct here for more clarity.
-		// const { value } = event.target
-		setUserInputActorB(event.target.value)
+		const { value } = event.target;
+		setUserInputActorB(value);
 	}
 
     // handle click function for the mash button
 	const handleClick = () => {
-    getUserSearch()
+    getUserSearch();
 	}
 
 	// this variable "movieList" will map through list of "mashedMovies" and render <h1> tags for each "movieTitle"
@@ -124,6 +128,7 @@ const ApiTesting = () => {
 
 	return (
 		<div>
+			<Header />
 			<div>
 				<input type='text' className='actor1' onChange={handleChangeActorA} />
 			</div>
