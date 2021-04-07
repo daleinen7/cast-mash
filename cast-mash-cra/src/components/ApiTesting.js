@@ -9,6 +9,7 @@ import Footer from './Footer'
 import leftMargin from '../static/05.png'
 import rightMargin from '../static/06.png'
 import backArrow from '../static/07.svg'
+import movieTicket from '../static/08.png'
 
 const ApiTesting = () => {
 
@@ -95,15 +96,20 @@ const ApiTesting = () => {
 		for (let i = 0; i < actorA.length; i++) {
 			for (let j = 0; j < actorB.length; j++) {
 				if (actorA[i].id === actorB[j].id && actorA[i].title !== undefined) {
-					console.log("actorA:", actorA[i]);
-					result.push(actorA[i].title);
+					result.push({
+						title: actorA[i].title,
+						synopsis: actorA[i].overview,
+						year: actorA[i].release_date.slice(0,4),
+						poster: actorA[i].poster_path
+					});
 				}
 			};
 		};
+
 		// if no results
 		if (result.length < 1) {
 			result = ["No Collaborations found."];
-		}
+		} 
 
 		// set state to have list of movie titles found in collaboration
 		setMashedMovies(result);
@@ -127,12 +133,28 @@ const ApiTesting = () => {
 	}
 
 	// this variable "movieList" will map through list of "mashedMovies" and render <h1> tags for each "movieTitle"
-	let movieList = mashedMovies.map((movieTitle, idx) => {
-		return (
-			<div className="movie-ticket" key={idx}>
-				{movieTitle}
-			</div>
-		)
+	let movieList = mashedMovies.map(({ title, synopsis, year, poster }, idx) => {
+		if (!title) {
+			return (
+				<div className="movie-ticket" key={idx}>
+					<h2>No collaborations found</h2>
+				</div>
+			)
+		} else {
+			return (
+				<div className="movie-ticket" key={idx}>
+					<img src={ movieTicket } alt="movie tiket" />
+					<div className="movie-info-container">
+						<img src={`https://image.tmdb.org/t/p/w500/${poster}`} alt="poster" />
+						<div className="movie-info">
+							<h2>{title} ({year})</h2>
+							<h3>Synopsis:</h3>
+							<p>{synopsis}</p>
+						</div>
+					</div>
+				</div>
+			)
+		}
 	})
 
 	// formatting name helper function
@@ -140,7 +162,7 @@ const ApiTesting = () => {
 		let names = userInput.split(" ");
 		let formatted = [];
 		for (let name of names) {
-			formatted.push(name[0].toUpperCase() + name.slice(1)); // ["Tom", "Cruise"]
+			formatted.push(name[0].toUpperCase() + name.slice(1));
 		}
 		return formatted.join().replace(',', ' ');
 	};
