@@ -85,7 +85,50 @@
   width: 100%;
   height: 400px;
   margin: 0 auto;
+  margin-bottom: 20px;
   background-color: #070000;
+}
 
-  border: 1px solid yellow;
+.movie-ticket > img {
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.movie-info-container {
+  position: absolute;
+  color: black;
+  width: 85%;
+  height: 94%;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.movie-info-container > img {
+  display: block;
+  width: 200px;
+  height: auto;
+  position: absolute;
+  top: 40px;
+}
+
+.movie-info-container > .movie-info {
+  width: 540px;
+  height: 300px;
+  position: absolute;
+  left: 210px;
+  top: 40px;
+  text-align: left;
+}
+.movie-info-container > .movie-info > h3 {
+  margin-top: 20px;
+}
+.movie-info-container > .movie-info > p {
+  margin-top: 10px;
 }
